@@ -4,7 +4,8 @@
   "description": "",
   "main": "entry.js",
   "scripts": {
-    "test": "mocha spec/helpers/browser.js spec/*_test.js"
+    "test": "mocha spec/helpers/browser.js spec/*_test.js",
+    "start:dev": "webpack-dev-server"
   },
   "author": "ahhsumx",
   "license": "ISC",
