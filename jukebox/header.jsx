@@ -22,7 +22,7 @@ class JukeboxHeader extends React.Component {
     const classes = ["jukebox-header"];
 
     if (this.props.is_shuffled) {
-      classes.push("shuffled");
+      classes.push("is_shuffled");
     }
 
     return classes.join(' ');
@@ -47,7 +47,7 @@ class JukeboxHeader extends React.Component {
     }
 
     return (
-      <a href="#" className={classes} onClick={this.on_shuffle_clicked}>
+      <a href="#" className={classes} onClick={this.on_shuffle_clicked.bind(this)}>
         {label}
       </a>
     );
@@ -55,7 +55,7 @@ class JukeboxHeader extends React.Component {
 
   on_shuffle_clicked() {
     if (typeof this.props.on_shuffle_change !== "undefined") {
-      this.props.on_shuffle_change(!this.props.is_shuffled);
+      this.props.on_shuffle_change(this.props.is_shuffled ? false : true);
     }
   }
 }
