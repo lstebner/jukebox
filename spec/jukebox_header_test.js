@@ -17,6 +17,11 @@ describe("<Header />", () => {
     const wrapper = shallow(<Header />);
     expect(wrapper).to.have.className("jukebox-header");
   });
+
+  it("contains a .shuffle_btn");
+  it("has class .is_shuffled when given prop is_shuffled=true");
+  it("calls on_shuffle_change when .shuffle_btn is clicked");
+  it("passes on_shuffle_change callback the new value for is_shuffled");
 });
 
 
