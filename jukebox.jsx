@@ -8,6 +8,7 @@ class Jukebox extends React.Component {
     return (
       <div className="jukebox">
         <Header />
+        <PlaylistPills />
         <BeatsList />
       </div>
     );
