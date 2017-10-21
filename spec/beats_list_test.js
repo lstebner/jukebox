@@ -14,10 +14,28 @@ const {expect} = chai;
 
 import {BeatsList} from './../jukebox-components';
 
-describe("<BeatsList />", () => {
+describe("<BeatsList />", function() {
   it("can render", function() {
     const wrapper = shallow(<BeatsList />);
     expect(wrapper).to.have.className("beats-list");
+  });
+
+  it("renders list of beats", function() {
+    const beats = [
+      {name: "", filename: "", is_playing: false},
+      {name: "", filename: "", is_playing: false},
+    ];
+    const wrapper = shallow(<BeatsList beats={beats} />);
+    expect(wrapper).to.have.exactly(beats.length).descendants(".beat");
+  });
+
+  it("renders the beat that is_playing with .is_playing", function() {
+    const beats = [
+      {name: "", filename: "", is_playing: false},
+      {name: "", filename: "", is_playing: true},
+    ];
+    const wrapper = shallow(<BeatsList beats={beats} />);
+    expect(wrapper).to.have.exactly(1).descendants(".is_playing");
   });
 });
 
