@@ -12,13 +12,13 @@ chai.use(spies);
 
 const {expect} = chai;
 
-import {BeatsList} from './../jukebox-components';
+import {BeatsList, TagsList} from './../jukebox-components';
 
 describe("<BeatsList />", function() {
   function get_beats() {
     return [
-      {name: "", filename: "", is_playing: false},
-      {name: "", filename: "", is_playing: true},
+      {name: "", filename: "", tags: [], is_playing: false},
+      {name: "", filename: "", tags: [], is_playing: true},
     ];
   }
 
@@ -39,11 +39,20 @@ describe("<BeatsList />", function() {
     expect(wrapper).to.have.exactly(1).descendants(".is_playing");
   });
 
-  it("fires handle_beat_clicked when a .beat is clicked");
+  it("fires handle_beat_clicked when a .beat is clicked", function() {
+    const beats = get_beats();
+    const onclick = chai.spy();
+    const wrapper = mount(<BeatsList beats={beats} handle_beat_clicked={onclick} />);
+    wrapper.find(".beat").first().simulate("click");
+    expect(onclick).to.have.been.called();
+  });
 
-  it("renders a list of associated tags for each beat");
-
-  it("fires handle_tag_clicked when a .beat .tag is clicked");
+  it("renders a <TagsList> for each beat", function() {
+    const beats = get_beats(); 
+    beats[0].tags.push("pancakes");
+    const wrapper = mount(<BeatsList beats={beats} />);
+    expect(wrapper.find(".beat").first()).to.contain(<TagsList tags={beats[0].tags} />);
+  });
 });
 
 
