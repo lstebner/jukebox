@@ -17,6 +17,11 @@ describe("<Jukebox />", () => {
     const wrapper = shallow(<Jukebox />);
     expect(wrapper).to.have.className("jukebox");
   });
+
+  it("contains a <Header>");
+  it("contains a <BeatsList>");
+  it("contains a <NowPlayingFooter> when state.is_playing");
+  it("contains a <PlaylistPills>");
 });
 
 

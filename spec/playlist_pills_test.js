@@ -39,6 +39,8 @@ describe("<PlaylistPills />", function() {
     const wrapper = shallow(<PlaylistPills playlists={playlists} />);
     expect(wrapper).to.have.exactly(1).descendants(".playlist_pill.is_selected");
   });
+
+  it("triggers handle_playlist_selected when a .playlist_pill is clicked");
 });
 
 
