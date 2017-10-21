@@ -1,3 +1,5 @@
+require("./jukebox/jukebox.less");
+
 import React from 'react';
 import {Header, PlaylistPills, BeatsList, NowPlayingFooter} from './jukebox-components.jsx';
 
