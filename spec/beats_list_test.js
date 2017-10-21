@@ -39,11 +39,11 @@ describe("<BeatsList />", function() {
     expect(wrapper).to.have.exactly(1).descendants(".is_playing");
   });
 
-  it("fires handle_beat_clicked when a .beat is clicked", function() {
+  it("fires handle_item_click when a .beat is clicked", function() {
     const beats = get_beats();
     const onclick = chai.spy();
-    const wrapper = mount(<BeatsList beats={beats} handle_beat_clicked={onclick} />);
-    wrapper.find(".beat").first().simulate("click");
+    const wrapper = mount(<BeatsList beats={beats} handle_item_click={onclick} />);
+    wrapper.find(".beat").first().find("a").simulate("click");
     expect(onclick).to.have.been.called();
   });
 

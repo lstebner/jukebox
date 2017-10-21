@@ -13,6 +13,7 @@ class BeatsList extends React.Component {
       is_playing: types.bool.isRequired,
       tags: types.array,
     })),
+    handle_item_click: types.func,
   }
 
   static defaultProps = {
@@ -49,11 +50,19 @@ class BeatsList extends React.Component {
     return items;
   }
 
+  handle_list_item_click(item) {
+    if (typeof this.props.handle_item_click === "function") {
+      this.props.handle_item_click(item);
+    }
+  }
+
   render_list_item(item) {
     return (
       <div key={this.key("beat")} className={`beat ${this.get_list_item_classes(item)}`}>
-        <a href="#">{item.name || item.filename}</a>
-        {this.render_list_item_tags(item)}
+        <a href="#" onClick={this.handle_list_item_click.bind(this, item)}>
+          <span className="name">{item.name || item.filename}</span>
+          {this.render_list_item_tags(item)}
+        </a>
       </div>
     );
   }

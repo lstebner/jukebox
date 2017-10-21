@@ -5,6 +5,7 @@ import types from 'prop-types';
 class PlaylistPills extends React.Component {
   static propTypes = {
     playlists: types.array,
+    handle_playlist_click: types.func,
   }
 
   static defaultProps = {
@@ -41,10 +42,16 @@ class PlaylistPills extends React.Component {
     return playlists;
   }
 
+  handle_playlist_click(playlist) {
+    if (typeof this.props.handle_playlist_click === "function") {
+      this.props.handle_playlist_click(playlist);
+    }
+  }
+
   render_playlist(playlist) {
     return (
       <div className={`playlist_pill ${this.get_playlist_classes(playlist)}`} key={this.key("playlist-pill")}>
-        <a href="#">{playlist.name}</a>
+        <a href="#" onClick={this.handle_playlist_click.bind(this, playlist)}>{playlist.name}</a>
       </div>
     );
   }

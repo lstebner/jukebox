@@ -40,7 +40,21 @@ describe("<PlaylistPills />", function() {
     expect(wrapper).to.have.exactly(1).descendants(".playlist_pill.is_selected");
   });
 
-  it("triggers handle_playlist_selected when a .playlist_pill is clicked");
+  it("triggers handle_playlist_click when a .playlist_pill is clicked", function() {
+    const onclick = chai.spy();
+    const playlists = [{ name: "super list" }];
+    const wrapper = mount(<PlaylistPills playlists={playlists} handle_playlist_click={onclick} />);
+    wrapper.find(".playlist_pill").first().find("a").simulate("click");
+    expect(onclick).to.have.been.called();
+  });
+
+  it("handle_playlist_click is passed the playlist when triggered", function() {
+    const onclick = chai.spy();
+    const playlists = [{ name: "super list" }];
+    const wrapper = mount(<PlaylistPills playlists={playlists} handle_playlist_click={onclick} />);
+    wrapper.find(".playlist_pill").first().find("a").simulate("click");
+    expect(onclick).to.have.been.called.with(playlists[0]);
+  });
 });
 
 
