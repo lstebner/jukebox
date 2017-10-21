@@ -11,7 +11,7 @@ chai.use(chaiEnzyme());
 const {expect} = chai;
 
 import Jukebox from './../jukebox';
-import {Header, BeatsList, PlaylistPills} from './../jukebox-components';
+import {Header, BeatsList, PlaylistPills, NowPlayingFooter} from './../jukebox-components';
 
 describe("<Jukebox />", function() {
   it("can render", function() {
@@ -29,7 +29,11 @@ describe("<Jukebox />", function() {
     expect(wrapper).to.contain(<BeatsList/>);
   });
 
-  it("contains a <NowPlayingFooter> when state.is_playing");
+  it("contains a <NowPlayingFooter> when state.is_playing", function() {
+    const wrapper = mount(<Jukebox />);
+    wrapper.setState({ is_playing: true });
+    expect(wrapper).to.contain(<NowPlayingFooter/>);
+  });
 
   it("contains a <PlaylistPills>", function() {
     const wrapper = shallow(<Jukebox />);
