@@ -13,6 +13,14 @@ class TagsList extends React.Component {
     tags: [],
   }
 
+  key(prepend="") {
+    if (typeof this._next_key === "undefined") {
+      this._next_key = 0;
+    }
+
+    return `${prepend}${this._next_key++}`;
+  }
+
   render() {
     return (
       <div className="tags-list">
@@ -39,7 +47,7 @@ class TagsList extends React.Component {
 
   render_tag(tag) {
     return (
-      <li className="tag" onClick={this.handle_tag_click.bind(this, tag)}>
+      <li key={this.key('tag')} className="tag" onClick={this.handle_tag_click.bind(this, tag)}>
         {tag}
       </li>
     );
