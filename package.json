@@ -6,6 +6,7 @@
   "scripts": {
     "test": "mocha spec/helpers/browser.js spec/*_test.js",
     "test:watch": "mocha -w spec/helpers/browser.js spec/*_test.js",
+    "test:w": "mocha -w spec/helpers/browser.js spec/*_test.js",
     "start:dev": "webpack-dev-server"
   },
   "author": "ahhsumx",
