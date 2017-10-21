@@ -1,3 +1,5 @@
+require("./header.less");
+
 import React from 'react';
 import types from 'prop-types';
 

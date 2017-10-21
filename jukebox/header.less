@@ -1,0 +1,26 @@
+@import "jukebox.less";
+
+.jukebox-header {
+  position: relative;
+  color: #787878;
+  padding: 28px;
+  border-bottom: 1px solid @divider_color;
+}
+
+.shuffle_btn {
+  position: absolute;
+  right: 12px;
+  top: 20px;
+  padding: 8px; 
+  fill: #8b8b8b;
+
+  &.is_shuffled {
+    fill: #16c72e;
+  }
+
+  svg {
+    width: 18px;
+    height: 18px;
+  }
+}
+

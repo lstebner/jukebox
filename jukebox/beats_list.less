@@ -1,0 +1,131 @@
+@import "jukebox.less";
+
+.beats-list {
+  position: relative;
+  height: 60vh;
+  overflow-y: auto;
+  border: 1px solid #777;
+
+  .beat {    
+    position: relative;
+    cursor: pointer;
+
+    &:nth-child(odd) {
+      background-color: #fafafa;
+    }
+
+    &:hover:not(.jukebox-header) {
+      background-color: #eee;
+    }
+  }
+
+  .jukebox-header {
+    top: 0;
+    cursor: default;
+    padding-left: 28px;
+    z-index: 1;
+
+    div {
+      display: inline-block;
+    }
+  }
+}
+
+.beat {
+  padding: 12px 8px;
+  border: 1px solid transparent;
+
+  &.hide {
+    display: none;
+  }
+
+  &.playing, &.selected {
+    border-color: #d8d8d8;
+    font-weight: 500;
+  }
+
+  .index {
+    &::after {
+      content: ". ";
+      margin-right: 6px;
+    }
+  }
+
+  .track_name {
+    display: inline-block;
+    min-width: 240px;
+  }
+
+  .tag {
+    background-color: #fff;
+    margin: 0 8px;
+    padding: 0 3px;
+    display: inline-block;
+  }
+}
+
+.beats-list {
+  border: none;
+  height: auto;
+
+  .beat {
+    clear: both;
+    background-color: transparent !important;
+    padding: 22px 28px 22px 22px;
+    margin: 0;
+    border-bottom: 1px solid @divider_color;
+    color: #444444;
+    border-left: 4px solid transparent;
+    transition: background-color .3s;
+
+    &:hover, &.hover {
+      background-color: #efefef !important;
+
+      .tag {
+        border: 1px solid #efefef;
+      }
+    }
+
+    [class^=icon-] {
+      line-height: 54px;
+    }
+
+    .track_name {
+      color: inherit;
+      display: block;
+      line-height: 1.5;
+    }
+
+    .duration {
+      color: #bbbbbb;
+    }
+
+    .tag {
+      padding: 3px 2px;
+      color: @blue;
+      background-color: #fefefe;
+      border: 1px solid transparent;
+    }
+
+    &.playing, &.selected {
+      border-top-color: transparent;
+      border-right: none;
+      font-weight: 300;
+    }
+
+    &.selected {
+      border-left: 4px solid @red;
+    }
+
+    &.playing {
+      .icon-play {
+        display: none;
+      }
+
+      .icon-pause {
+        display: block;
+      }
+    }
+  }
+}
+

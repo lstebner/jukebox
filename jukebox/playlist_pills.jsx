@@ -1,3 +1,4 @@
+require("./playlist_pills.less");
 import React from 'react';
 
 class PlaylistPills extends React.Component {

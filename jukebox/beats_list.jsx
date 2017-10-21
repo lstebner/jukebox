@@ -1,3 +1,4 @@
+require("./beats_list.less");
 import React from 'react';
 import types from 'prop-types';
 

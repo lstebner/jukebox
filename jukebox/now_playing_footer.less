@@ -1,0 +1,105 @@
+@import "jukebox.less";
+
+.now-playing-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 14px 24px 24px;
+  background-color: #f9f9f9;
+  display: none;
+
+  .shadow {
+    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0), #555555); 
+    height: 8px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: -8px;
+    z-index: -1;
+    opacity: .1;
+  }
+
+  .toggle_control {
+    font-size: 10px;
+    padding: 2px 6px;
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    svg {
+      width: 22px;
+      height: 22px;
+      fill: #8b8b8b;
+    }
+
+    .icon-expand_less {
+      display: none;
+    }
+  }
+
+  &.shrunk {
+    height: 0px;
+    padding-top: 2px;
+
+    .icon-play, .icon-pause {
+      visibility: hidden; 
+    }
+
+    .toggle_control {
+      .icon-expand_more {
+        display: none;
+      }
+
+      .icon-expand_less {
+        display: block;
+      }
+    }
+  }
+
+  .icon-pause, .icon-play {
+    height: 70px;
+
+    svg {
+      position: relative;
+      top: 50%;
+      width: 40px;
+      height: 40px;
+      margin-top: -20px;
+      cursor: pointer;
+    }
+  }
+
+  &.playing {
+    .icon-pause {
+      display: block;
+    }
+
+    .icon-play {
+      display: none;
+    }
+  }
+
+  .now_playing_label {
+    font-size: 12px;
+    text-transform: uppercase;
+    color: #8b8b8b;
+    margin: 4px 0;
+  }
+
+  .track_name {
+    color: #555555;
+  }
+
+  .progress_label {
+    color: #bbbbbb;
+    display: inline-block;
+    margin-right: 8px;
+    margin-top: 4px;
+  }
+
+  .tag {
+    color: @blue;
+  }
+}
+

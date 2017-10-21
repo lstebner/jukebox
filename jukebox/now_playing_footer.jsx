@@ -1,3 +1,4 @@
+require("./now_playing_footer.less");
 import React from 'react';
 
 class NowPlayingFooter extends React.Component {
