@@ -35,7 +35,7 @@ class PlaylistPills extends React.Component {
     const playlists = [];
 
     for (let i = 0; i < this.props.playlists.length; i++) {
-      playlists.push(this.render_playlist(this.props.playlist[i]));  
+      playlists.push(this.render_playlist(this.props.playlists[i]));  
     }
 
     return playlists;
@@ -43,10 +43,20 @@ class PlaylistPills extends React.Component {
 
   render_playlist(playlist) {
     return (
-      <div className="playlist_pill" key={this.key("playlist-pill")}>
+      <div className={`playlist_pill ${this.get_playlist_classes(playlist)}`} key={this.key("playlist-pill")}>
         <a href="#">{playlist.name}</a>
       </div>
     );
+  }
+
+  get_playlist_classes(playlist) {
+    const classes = [];
+
+    if (playlist.is_selected) {
+      classes.push("is_selected");
+    }
+
+    return classes.join(" ");
   }
 }
 
