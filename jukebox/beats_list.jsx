@@ -15,6 +15,14 @@ class BeatsList extends React.Component {
   static defaultProps = {
     beats: []
   }
+
+  key(prepend="") {
+    if (typeof this._next_key === "undefined") {
+      this._next_key = 0;
+    }
+
+    return `${prepend}${this._next_key++}`;
+  }
   
   classes() {
     return "beats-list";
@@ -40,10 +48,20 @@ class BeatsList extends React.Component {
 
   render_list_item(item) {
     return (
-      <div className="beat">
+      <div key={this.key("beat")} className={`beat ${this.get_list_item_classes(item)}`}>
         <a href="#">{item.name || item.filename}</a>
       </div>
     );
+  }
+
+  get_list_item_classes(item) {
+    const classes = [];
+
+    if (item.is_playing) {
+      classes.push("is_playing");
+    }
+
+    return classes.join(" ");
   }
 }
 
