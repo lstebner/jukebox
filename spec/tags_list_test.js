@@ -19,6 +19,29 @@ describe("<TagsList />", function() {
     const wrapper = shallow(<TagsList />);
     expect(wrapper).to.have.className("tags-list");
   });
+
+  it("renders a list of tags", function() {
+    const tags = ["one", "two"];
+    const wrapper = shallow(<TagsList tags={tags} />);
+    expect(wrapper).to.have.exactly(1).descendants(".list_of_tags");
+    expect(wrapper).to.have.exactly(tags.length).descendants(".tag");
+  });
+
+  it("triggers handle_tag_click when a tag is clicked", function() {
+    const onclick = chai.spy();
+    const tags = ["one", "two"];
+    const wrapper = mount(<TagsList tags={tags} handle_tag_click={onclick} />);
+    wrapper.find(".tag").first().simulate("click");
+    expect(onclick).to.have.been.called();
+  });
+
+  it("passes handle_tag_click the tag that was clicked", function() {
+    const onclick = chai.spy();
+    const tags = ["one", "two"];
+    const wrapper = mount(<TagsList tags={tags} handle_tag_click={onclick} />);
+    wrapper.find(".tag").first().simulate("click");
+    expect(onclick).to.have.been.called.with(tags[0]);
+  });
 });
 
 
