@@ -10,8 +10,8 @@ chai.use(chaiEnzyme());
 
 const {expect} = chai;
 
-import Jukebox from './../jukebox';
-import {Header, BeatsList, PlaylistPills, NowPlayingFooter} from './../jukebox-components';
+import Jukebox from './../jukebox/jukebox.jsx';
+import {Header, BeatsList, PlaylistPills, NowPlayingFooter} from './../jukebox/jukebox-components.jsx';
 
 describe("<Jukebox />", function() {
   it("can render", function() {

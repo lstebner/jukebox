@@ -12,7 +12,8 @@ chai.use(spies);
 
 const {expect} = chai;
 
-import {BeatsList, TagsList} from './../jukebox-components';
+import BeatsList from './../jukebox/beats_list.jsx';
+import TagsList from './../jukebox/tags_list.jsx';
 
 describe("<BeatsList />", function() {
   function get_beats() {

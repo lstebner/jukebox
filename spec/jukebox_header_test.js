@@ -12,7 +12,7 @@ chai.use(spies);
 
 const {expect} = chai;
 
-import {Header} from './../jukebox-components';
+import Header from './../jukebox/header.jsx';
 
 describe("<Header />", () => {
   it("can render", function() {

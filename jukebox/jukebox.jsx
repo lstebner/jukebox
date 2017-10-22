@@ -1,4 +1,4 @@
-require("./jukebox/jukebox.less");
+require("./jukebox.less");
 
 import React from 'react';
 import types from 'prop-types';

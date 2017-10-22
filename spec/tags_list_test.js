@@ -12,7 +12,7 @@ chai.use(spies);
 
 const {expect} = chai;
 
-import {TagsList} from './../jukebox-components';
+import TagsList from './../jukebox/tags_list.jsx';
 
 describe("<TagsList />", function() {
   it("can render", function() {

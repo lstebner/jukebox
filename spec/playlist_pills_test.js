@@ -12,7 +12,7 @@ chai.use(spies);
 
 const {expect} = chai;
 
-import {PlaylistPills} from './../jukebox-components';
+import PlaylistPills from './../jukebox/playlist_pills.jsx';
 
 describe("<PlaylistPills />", function() {
   it("can render", function() {

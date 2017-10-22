@@ -1,5 +1,6 @@
 require("./style.css");
-const Jukebox = require("./jukebox.jsx");
+require("./style.less");
+const Jukebox = require("./jukebox/jukebox.jsx");
 
 import React from 'react';
 import ReactDOM from 'react-dom';
