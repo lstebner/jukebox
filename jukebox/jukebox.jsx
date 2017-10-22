@@ -3,15 +3,14 @@ require("./jukebox.less");
 import React from 'react';
 import types from 'prop-types';
 import {Header, PlaylistPills, BeatsList, NowPlayingFooter} from './jukebox-components.jsx';
-import jukeboxdata from './data.js';
 
 class Jukebox extends React.Component {
   static propTypes = {
-    beats: types.array, //todo: better define this array
+    jukeboxdata: types.object,
   }
 
   static defaultProps = {
-    beats: []
+    jukeboxdata: {},
   }
 
   constructor(props) {
@@ -30,15 +29,15 @@ class Jukebox extends React.Component {
   }
 
   componentDidMount() {
-    this.parse_data(jukeboxdata);
+    this.parse_data(this.props.jukeboxdata);
   }
 
   render() {
     return (
       <div className="jukebox">
         <Header />
-        <PlaylistPills />
-        <BeatsList beats={this.props.beats} />
+        <PlaylistPills playlists={this.state.playlists} />
+        <BeatsList beats={this.state.songs} />
         {this.render_now_playing()}
       </div>
     );
@@ -67,7 +66,7 @@ class Jukebox extends React.Component {
 
     this.setState({
       playlists: this.playlists,
-      beats: this.songs,
+      songs: this.songs,
     });
   }
 
