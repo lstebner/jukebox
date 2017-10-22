@@ -59,7 +59,7 @@ class BeatsList extends React.Component {
   render_list_item(item) {
     return (
       <div key={this.key("beat")} className={`beat ${this.get_list_item_classes(item)}`}>
-        <a href="#" onClick={this.handle_list_item_click.bind(this, item)}>
+        <a href="#" className="track_name" onClick={this.handle_list_item_click.bind(this, item)}>
           <span className="name">{item.name || item.filename}</span>
           {this.render_list_item_tags(item)}
         </a>

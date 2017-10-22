@@ -88,6 +88,7 @@ class Jukebox extends React.Component {
     song.name = song.name || song.filepath;
     song.filename = `${song.key}/${song.filepath}`;
     song.tags.push(playlist);
+    song.is_playing = false;
 
     this.songs.push(song);
   }

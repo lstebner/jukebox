@@ -27,7 +27,9 @@ class PlaylistPills extends React.Component {
   render() {
     return (
       <div className={this.classes()}>
-        {this.render_playlists()}
+        <ul className="playlists">
+          {this.render_playlists()}
+        </ul>
       </div>
     )
   }
@@ -50,9 +52,9 @@ class PlaylistPills extends React.Component {
 
   render_playlist(playlist) {
     return (
-      <div className={`playlist_pill ${this.get_playlist_classes(playlist)}`} key={this.key("playlist-pill")}>
+      <ul className={`playlist_pill ${this.get_playlist_classes(playlist)}`} key={this.key("playlist-pill")}>
         <a href="#" onClick={this.handle_playlist_click.bind(this, playlist)}>{playlist.name}</a>
-      </div>
+      </ul>
     );
   }
 
