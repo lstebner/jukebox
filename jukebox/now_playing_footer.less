@@ -33,7 +33,7 @@
       fill: #8b8b8b;
     }
 
-    .icon-expand_less {
+    .icon.expand_less {
       display: none;
     }
   }
@@ -42,22 +42,12 @@
     height: 0px;
     padding-top: 2px;
 
-    .icon-play, .icon-pause {
+    .icon.play, .icon.pause {
       visibility: hidden; 
-    }
-
-    .toggle_control {
-      .icon-expand_more {
-        display: none;
-      }
-
-      .icon-expand_less {
-        display: block;
-      }
     }
   }
 
-  .icon-pause, .icon-play {
+  .icon.pause, .icon.play {
     height: 70px;
 
     svg {
@@ -67,16 +57,6 @@
       height: 40px;
       margin-top: -20px;
       cursor: pointer;
-    }
-  }
-
-  &.playing {
-    .icon-pause {
-      display: block;
-    }
-
-    .icon-play {
-      display: none;
     }
   }
 

@@ -50,7 +50,7 @@ class JukeboxHeader extends React.Component {
 
     return (
       <a href="#" className={classes} onClick={this.on_shuffle_clicked.bind(this)}>
-        {label}
+        <span className="material-icons">shuffle</span>
       </a>
     );
   }

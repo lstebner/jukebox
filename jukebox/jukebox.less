@@ -6,6 +6,13 @@ body {
 @blue: #66a1ee;
 @red: #ee6d66;
 
+.micon(@color, @font-size: 18px) {
+  .material-icons {
+    color: @color;
+    font-size: @font-size;
+  }
+}
+
 .jukebox {
   max-width: 480px;
   border: 1px solid @divider_color;
@@ -34,21 +41,6 @@ body {
     &.now_playing_open {
       height: 86%;
     }
-  }
-
-  .icon-play, .icon-pause {
-    fill: @red;
-    float: left;
-    margin-right: 6px;
-
-    svg {
-      width: 28px;
-      height: 28px;
-    }
-  }
-
-  .icon-pause {
-    display: none;
   }
 
   .player {

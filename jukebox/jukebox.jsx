@@ -30,6 +30,15 @@ class Jukebox extends React.Component {
 
   componentDidMount() {
     this.parse_data(this.props.jukeboxdata);
+    this.load_material_icons();
+  }
+
+  load_material_icons() {
+    const tag = document.createElement("link");
+    tag.href = "https://fonts.googleapis.com/icon?family=Material+Icons";
+    tag.rel = "stylesheet";
+    const head = document.getElementsByTagName("head")[0];
+    head.appendChild(tag);
   }
 
   render() {

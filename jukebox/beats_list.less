@@ -17,6 +17,12 @@
     &:hover:not(.jukebox-header) {
       background-color: #eee;
     }
+
+    .material-icons {
+      color: @red;
+      float: left;
+      margin-right: 6px;
+    }
   }
 
   .jukebox-header {
@@ -79,7 +85,7 @@
       }
     }
 
-    [class^=icon-] {
+    .material-icons {
       line-height: 54px;
     }
 
@@ -101,16 +107,6 @@
 
     &.selected {
       border-left: 4px solid @red;
-    }
-
-    &.playing {
-      .icon-play {
-        display: none;
-      }
-
-      .icon-pause {
-        display: block;
-      }
     }
   }
 }

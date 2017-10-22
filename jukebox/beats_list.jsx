@@ -57,9 +57,18 @@ class BeatsList extends React.Component {
   }
 
   render_list_item(item) {
+    let playing_icon;
+    if (item.is_playing) {
+      playing_icon = "pause_circle_outline";
+    }
+    else {
+      playing_icon = "play_circle_outline";
+    }
+
     return (
       <div key={this.key("beat")} className={`beat ${this.get_list_item_classes(item)}`}>
         <a href="#" className="track_name" onClick={this.handle_list_item_click.bind(this, item)}>
+          <span className="material-icons">{playing_icon}</span>
           <span className="name">{item.name || item.filename}</span>
           {this.render_list_item_tags(item)}
         </a>
