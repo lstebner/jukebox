@@ -30,9 +30,9 @@ describe("<Header />", () => {
     expect(wrapper).to.have.className("is_shuffled");     
   });
 
-  it("shuffle button says 'unshuffle' when is_shuffled", function() {
+  it("shuffle button has class 'unshuffle' when is_shuffled", function() {
     const wrapper = shallow(<Header is_shuffled={true} />);
-    expect(wrapper.find(".shuffle_btn")).to.contain("Unshuffle");
+    expect(wrapper.find(".shuffle_btn")).to.have.className("unshuffle");
   });
 
   describe("#on_shuffle_change", function() {
